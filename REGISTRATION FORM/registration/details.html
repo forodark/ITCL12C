@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Segoe UI;
+            color: #fff;
+            background-color: #222;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .forms {
+            background-color: white;
+            color: black;
+            margin: auto;
+            text-align: right;
+            width: 260px;
+            height: auto;
+            padding: 50px;
+        }
+
+        .details {
+            background-color: white;
+            color: black;
+            margin: auto;
+            text-align: left;
+            width: 260px;
+            height: auto;
+            padding: 50px;
+        }
+
+        .left_column {
+            text-align: right;
+            width: 100px;
+        }
+
+        .right_column {
+            text-align: left;
+        }
+    </style>
+    <script type="text/javascript">
+        function showDetails() {
+            var empDetails = document.getElementById("details");
+            var empName = document.getElementById("user_name");
+            var empAge = document.getElementById("user_age");
+
+            empDetails.innerHTML = "Name: " + empName.value + "<br>" + "Age: " + empAge.value;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="forms">
+        <form name="myForm">
+            <p>
+                Name: <input type="text" id="user_name" />
+                <br>
+                Age: <input type="text" id="user_age" />
+                <br>
+                <input type="button" value="Show Details" onClick="showDetails()" />
+            </p>
+        </form>
+    </div>
+    <div class="details">
+        <p>Employee Details:</p>
+        <p id="details"></p>
+    </div>
+</body>

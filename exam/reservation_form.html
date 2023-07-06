@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>Reservation Form</title>
+		
+		<style>
+		body {
+			background-color: #e0faff;
+			font-family: Verdana;
+		}
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 40px;
+			background-color: #ffffff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+			text-align: center;
+		.section {
+			margin-bottom: 40px;
+			text-align: left;
+		}
+		.section h4 {
+			font-size: 16px;
+			margin-top: 0;
+			margin-bottom: 20px;
+		}
+		.section h3 {
+			text-align: center;
+		}
+		.section td {
+			
+		}
+		.section tr {
+			height: 50px;
+		}
+		#field {
+			width: 180px;
+		}
+		.section legend {
+			text-align: center;
+		}
+		</style>
+		
+		<script language="JavaScript">
+		
+		
+			function validateForm()
+			{
+			
+			var name = document.reservation.name.value;
+			var email = document.reservation.email.value;
+			var tour_package = document.reservation.tour_package.value;
+			var date = document.reservation.date.value;
+			var coupon = document.reservation.coupon.value;
+			var tac1 = document.getElementById('agree');
+			var tac2 = document.getElementById('disagree');
+			var avail1_checked = document.getElementById('boarding');
+			var avail2_checked = document.getElementById('fooding');
+			var avail3_checked = document.getElementById('sightseeing');
+			var avail1;
+			var avail2;
+			var avail3;
+			
+			if (name == "") {
+				alert("Full Name field cannot be empty");
+				return false;
+			}
+			if (email == "") {
+				alert("Email Address field cannot be empty");
+				return false;
+			}
+			if (tour_package == "") {
+				alert("Tour Package field cannot be empty");
+				return false;
+			}
+			if (date == "") {
+				alert("Arrival Date field cannot be empty");
+				return false;
+			}
+			if (!tac1.checked && !tac2.checked) {
+				alert("Terms and conditions field cannot be empty");
+				return false;
+			}
+			if (tac2.checked) {
+				alert("You must agree to the terms and conditions to submit a reservation");
+				return false;
+			}
+			if ((!avail1_checked.checked && !avail2_checked.checked) && !avail3_checked.checked) {
+				alert("You must select atleast one activity to avail");
+				return false;
+			}
+			if (avail1_checked.checked) {
+				avail1 = "Boarding ";
+			}
+			else 
+			{
+				avail1 = "";
+			}
+			if (avail2_checked.checked) {
+				avail2 = "Fooding ";
+			}
+			else 
+			{
+				avail2 = "";
+			}
+			if (avail3_checked.checked) {
+				avail3 = "Sightseeing ";
+			}			
+			else 
+			{
+				avail3 = "";
+			}
+			
+			if (coupon == "") {
+				coupon = "N/A";
+			}
+			
+			document.writeln("<pre>");
+			document.writeln("Thank you for making a reservation!:");
+			document.writeln("<pre>");
+			document.writeln("Here are your reservation details:");
+			document.writeln("<pre>");
+			document.writeln("Full Name: " + name);
+			document.writeln("Email Address: " + email);
+			document.writeln("Tour Package: " + tour_package);
+			document.writeln("Arrival Date: " + date);
+			document.writeln("Activities to Avail: " + avail1 + avail2 + avail3);
+			document.writeln("Discount Coupon: " + coupon);
+			}
+		</script>
+	</head>
+
+
+	<body>
+		
+		<div class=container>
+			<form name="reservation" onsubmit="return validateForm()" method="post">
+			<section class=section>
+			<fieldset>
+				<legend>Reservation Form</legend>
+				
+				<table>
+						<tr>
+							<td id="field"><label for="name">Full Name<span style="color:red">*</span></label></td>
+							<td><input type=text id="name" name="name"></td>
+						</tr>
+						
+						<tr>
+							<td id="field"><label for="email">Email Address<span style="color:red">*</span></label></td>
+							<td id=input><input type=text id="email" name="email" required></td>
+						</tr>
+						
+						<tr>
+							<td id="field">Select Tour Package<span style="color:red">*</span></td>
+							<td>
+							<select name="tour_package" required>
+							<option value="palawan">Palawan</option>
+							<option value="option2">Option 2</option>				
+							</select>
+							</td>
+						</tr>
+
+						<tr>
+							<td id="field">Arrival Date<span style="color:red">*</span></td>
+							<td>
+							<input type="date" id="date" name="date" value="2023-05-30" min="2023-05-30" max="2024-05-30" required>
+							</td>
+						</tr>
+
+						<tr>
+							<td id="field"><label for="personcount">Number of persons<span style="color:red">*</span></label></td>
+							<td><input type=text id="personcount" name="personcount" required></td>
+						</tr>
+
+						<tr>
+							<td id="field">What would you want to avail?<span style="color:red">*</span></td>
+							<td>
+							<input type=checkbox id="boarding" name="avail" value="boarding">
+							<label for="avail">Boarding</label>
+							<input type=checkbox id="fooding" name="avail" value="fooding">
+							<label for="avail">Fooding</label>
+							<input type=checkbox id="sightseeing" name="avail" value="sightseeing">
+							<label for="avail">Sightseeing</label>
+							</td>
+						</tr>
+				
+						<tr>
+							<td id="field"><label for="coupon">Discount Coupon Code</label></td>
+							<td><input type=text id="coupon" name="coupon"></td>
+						</tr>
+
+						<tr>
+							<td id="field"><label for="file">File Upload</label></td>
+							<td><input id="file" type="file"/></td>
+						</tr>
+						
+						<tr>
+							<td id="field">Terms and Conditions<span style="color:red">*</span></td>
+							<td>
+							<input type=radio id="agree" name="tac" value="agree" required>
+							<label for="tac">I agree</label>
+							<input type=radio id="disagree" name="tac" value="disagree" required>
+							<label for="tac">I disagree</label>
+							</td>
+						</tr>
+						
+						<tr>
+							<td></td>
+							<td>
+							<input type="submit" value="Submit"><input type="reset">
+							</td>	
+						</tr>			
+				</table>
+			
+			</fieldset>
+			</section>
+			
+			<form>
+		</div>
+			
+	</body>
+
+
+</html>

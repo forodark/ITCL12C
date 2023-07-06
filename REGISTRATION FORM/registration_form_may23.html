@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background-image: linear-gradient(#ffffff, #333333);
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			width: 400px;
+			padding: 20px;
+			background-color: #ffffff;
+			border-radius: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		}
+		h2 {
+			text-align: center;
+			margin-bottom: 20px;
+			color: #333333;
+		}
+		table {
+			width: 100%;
+		}
+		td {
+			padding: 10px 0;
+		}
+		td:first-child {
+			text-align: right;
+			width: 120px;
+			font-weight: bold;
+			color: #505050;
+		}
+		td:last-child {
+			text-align: left;
+		}
+		input, select, textarea {
+			width: 100%;
+			padding: 5px;
+			border-radius: 5px;
+			border: 1px solid #cccccc;
+		}
+		textarea {
+			resize: vertical;
+			height: 100px;
+		}
+		button {
+			margin-top: 10px;
+			border: none;
+			border-radius: 15px;
+			padding: 8px 20px;
+			font-size: 14px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			color: #ffffff;
+			background-color: #f06292;
+		}
+		button:hover {
+			background-color: #B95979;
+		}
+		span {
+			color: red;
+		}
+	</style>
+	<script>
+		function validateForm() {
+			var name = document.forms["form"]["name"];
+			var address = document.forms["form"]["address"];
+			var email = document.forms["form"]["email"];
+			var telephone = document.forms["form"]["telephone"];
+			var password = document.forms["form"]["password"];
+			var course = document.forms["form"]["course"];
+			var notes = document.forms["form"]["notes"];
+
+			if (name.value === "") {
+				name.focus();
+				alert("Please enter Name.");
+				return false;
+			}
+			if (!name.value.match(/^[A-Za-z\s]+$/)) {
+				name.focus();
+				alert("Please enter a valid name");
+				return false;
+			}
+			if (address.value === "") {
+				address.focus();
+				alert("Please enter Address.");
+				return false;
+			}
+			if (email.value === "") {
+				email.focus();
+				alert("Please enter an Email address.");
+				return false;
+			}
+			if (!email.value.match(/\S+@\S+\.\S+/)) {
+				email.focus();
+				alert("Please enter a valid Email address.");
+				return false;
+			}
+			if (password.value === "") {
+				password.focus();
+				alert("Please enter a Password.");
+				return false;
+			}
+			if (password.value.length < 8) {
+				password.focus();
+				alert("Password must be atleast 8 characters");
+				return false;
+			}
+			if (telephone.value === "") {
+				telephone.focus();
+				alert("Please enter a telephone number.");
+				return false;
+			}
+			if (!telephone.value.match(/^\d{11}$/)) {
+				telephone.focus();
+				alert("Telephone number must be 11 digits.");
+				return false;
+			}
+			if (course.value === "") {
+				course.focus();
+				alert("Please select a Course.");
+				return false;
+			}
+			alert("Successfully Submitted");
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h2>Registration Form</h2>
+		<form name="form" onsubmit="return validateForm()">
+			<table>
+				<tr>
+					<td><label for="name">Name<span>*</span></label></td>
+					<td><input type="text" name="name" placeholder="Enter name..."></td>
+				</tr>
+				<tr>
+					<td><label for="address">Address<span>*</span></label></td>
+					<td><input type="text" name="address" placeholder="Enter address..."></td>
+				</tr>
+				<tr>
+					<td><label for="email">Email Address<span>*</span></label></td>
+					<td><input type="email" name="email" placeholder="Enter email..."></td>
+				</tr>
+				<tr>
+					<td><label for="password">Password<span>*</span></label></td>
+					<td><input type="password" name="password" placeholder="Enter password..."></td>
+				</tr>
+				<tr>
+					<td><label for="telephone">Telephone<span>*</span></label></td>
+					<td><input type="tel" name="telephone" placeholder="Enter telephone number..."></td>
+				</tr>
+				<tr>
+					<td><label for="course">Course<span>*</span></label></td>
+					<td>
+						<select name="course">
+							<option value="">Select Course</option>
+							<option value="bscs">BSCS</option>
+							<option value="bsit">BSIT</option>
+							<option value="bsem">BSEM</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><label for="comments">Comments</label></td>
+					<td><textarea name="comments" placeholder="Enter comments..."></textarea></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<button type="submit">Submit</button>
+						<button type="reset">Reset</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

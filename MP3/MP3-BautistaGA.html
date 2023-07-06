@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #F5F5F5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            color: #2B4162;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2B4162;
+        }
+        .list {
+            list-style-type: decimal;
+            padding-left: 20px;
+            color: #050505;
+        }
+        .list li {
+            margin-bottom: 15px;
+        }
+        .section {
+            background-color: #FFFFFF;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fade .8s ease-in-out;
+            animation-fill-mode: both;
+            max-width: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 30vh;
+        }
+        .section h1 {
+            animation: slide 1.6s ease-in-out;
+            animation-fill-mode: both;
+        }
+        .section h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            animation: slide 1.6s ease-in-out;
+            animation-fill-mode: both;
+        }
+        .section ol {
+            margin: 0;
+            padding: 0;
+            list-style-position: inside;
+        }
+        .section ol li {
+            position: relative;
+            animation: slide 2.4s ease-in-out;
+            animation-fill-mode: both;
+        }
+        @keyframes fade {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes slide {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+	<div class="section">
+		<h1>Favorite Stuff</h1>
+	</div>
+	<div class="section">
+		<h2>Restaurants</h2>
+		<ol class="list">
+			<li>Jollibee</li>
+			<li>McDonalds</li>
+			<li>KFC</li>
+			<li>Wendy's</li>
+			<li>Burger King</li>
+		</ol>
+	</div>
+	<div class="section">
+		<h2>Places</h2>
+		<ol class="list">
+			<li>Home</li>
+			<li>School</li>
+			<li>Mall</li>
+			<li>Park</li>
+			<li>Library</li>
+		</ol>
+	</div>
+	<div class="section">
+		<h2>Apps</h2>
+		<ol class="list">
+			<li>Youtube</li>
+			<li>Camera</li>
+			<li>Messenger</li>
+			<li>Google Chrome</li>
+			<li>Chess</li>
+		</ol>
+	</div>
+</body>
+</html>

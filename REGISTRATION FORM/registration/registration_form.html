@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Segoe UI;
+            color: #fff;
+            background-color: #222;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .forms {
+            background-color: white;
+            color: black;
+            margin: auto;
+            text-align: left;
+            width: auto;
+            height: auto;
+            padding: 50px;
+        }
+
+        .details {
+            background-color: white;
+            color: black;
+            margin: auto;
+            text-align: left;
+            width: auto;
+            height: auto;
+            padding: 50px;
+        }
+
+        .left_column {
+            text-align: right;
+            width: 200px;
+        }
+
+        .right_column {
+            text-align: left;
+        }
+    </style>
+    <script type="text/javascript">
+        function validatePhoneNumber(phoneNumber) {
+            var regex = /^\d{3}-\d{4}$/;
+            return regex.test(phoneNumber);
+        }
+        function validate() {
+            if (document.myForm.user_name.value == "") {
+                alert("Name field cannot be empty.");
+                document.myForm.user_name.focus();
+                return false;
+            }
+            if (document.myForm.user_address.value == "") {
+                alert("Address field cannot be empty.");
+                document.myForm.user_address.focus();
+                return false;
+            }
+            if (document.myForm.user_email.value == "") {
+                alert("Email field cannot be empty.");
+                document.myForm.user_email.focus();
+                return false;
+            }
+            if (document.myForm.user_password.value == "") {
+                alert("Password field cannot be empty.");
+                document.myForm.user_password.focus();
+                return false;
+            }
+            if (document.myForm.user_telephone.value == "") {
+                alert("Telephone field cannot be empty.");
+                document.myForm.user_telephone.focus();
+                return false;
+            }
+            if (!validatePhoneNumber(document.myForm.user_telephone.value)) {
+                alert("Telephone field must be in this format ###-####.");
+                document.myForm.user_telephone.focus();
+                return false;
+            }
+            if (document.myForm.user_course.value == "default_course") {
+                alert("Please select a course.");
+                document.myForm.user_course.focus();
+                return false;
+            }
+            return true;
+        }
+        function showDetails() {
+            var student_details = document.getElementById("details");
+            var student_name = document.getElementById("user_name");
+            var student_address = document.getElementById("user_address");
+            var student_email = document.getElementById("user_email");
+            var student_telephone = document.getElementById("user_telephone");
+            var student_course = document.getElementById("user_course");
+
+            student_details.innerHTML = "Name: " + student_name.value + "<br>" + "Address: " + student_address.value + "<br>" + "Email: " + student_email.value + "<br>" + "Telephone: " + student_telephone.value + "<br>" + "Course: " + student_course.value + "<br>" + "Comments: " + document.myForm.user_comments.value;
+        }
+    </script>
+</head>
+<header>
+    <h1>Registration Form</h1>
+</header>
+
+<body>
+    <div class="forms">
+        <form name="myForm" onSubmit="return validate()">
+            <table>
+                <tr>
+                    <td class="left_column">Name:</td>
+                    <td><input type="text" id="user_name" /></td>
+                </tr>
+                <tr>
+                    <td class="left_column">Address:</td>
+                    <td><input type="text" id="user_address" /></td>
+                </tr>
+                <tr>
+                    <td class="left_column">Email Address:</td>
+                    <td><input type="text" id="user_email" /></td>
+                </tr>
+                <tr>
+                    <td class="left_column">Password:</td>
+                    <td><input type="password" id="user_password" /></td>
+                </tr>
+                <tr>
+                    <td class="left_column">Telephone:</td>
+                    <td><input type="text" id="user_telephone" value="###-####" /></td>
+                </tr>
+                <tr>
+                    <td class="left_column">SELECT YOUR COURSE:</td>
+                    <td>
+                        <select id="user_course">
+                            <option name="default" value="default_course">COURSE</option>
+                            <option name="BSCS" value="computer_science">BSCS</option>
+                            <option name="BSCS" value="esports_management">BSEM</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left_column">Comments:</td>
+                    <td>
+                        <textarea id="user_comments" rows="5" cols="20"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="left_column"><input type="submit" value="Submit" /></td>
+                    <td>
+                        <input type="reset" value="Reset" />
+                        <input type="button" value="Show Details" onClick="showDetails()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="details">
+        <p>User Details:</p>
+        <p id="details"></p>
+    </div>
+</body>

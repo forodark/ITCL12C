@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		
+		<style>
+		body {
+			background-color: #e0faff;
+			font-family: Verdana;
+		}
+		.container {
+			max-width: 400px;
+			margin: 0 auto;
+			padding: 40px;
+			background-color: #ffffff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+			text-align: center;
+		.section {
+			margin-bottom: 40px;
+			text-align: left;
+		}
+		.section h4 {
+			font-size: 16px;
+			margin-top: 0;
+			margin-bottom: 20px;
+		}
+		.section h3 {
+			text-align: center;
+		}
+		.section td {
+			
+		}
+		.section tr {
+			height: 50px;
+		}
+		#field {
+			width: 120px;
+		}
+		.section legend {
+			text-align: center;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<script language="JavaScript">
+			function checkLogin(x) {
+				if (x.id.value == "") {
+					alert("Username field cannot be empty");
+					return false;
+				} 
+				if (x.pass.value == "") {
+					alert("Password cannot be empty");
+					return false;
+				} 
+			
+				if (x.id.value !== "Glen" || x.pass.value !== "asdfghjkl") {
+					alert("Incorrect Username or Password");
+					return false;
+				} 
+				else {
+					location.href = "reservation_form.html";
+				}
+			}
+
+		</script>
+		
+		<div class=container>
+			<form name="login" method="post">
+			<section class=section>
+				<h3>Login Details </h4>
+				<hr>
+				<table>
+					<tr>
+						<td id="field"><label for="id">User ID<span style="color:red">*</span></label></td>
+						<td><input type=text id="id" name="id" required></td>
+					</tr>
+					
+					<tr>
+						<td id="field"><label for="pass">Password<span style="color:red">*</span></label></td>
+						<td id=input><input type=password id="pass" name="pass" required></td>
+					</tr>
+					
+					<tr>
+						<td></td>
+						<td>
+							<input type="button" value="Login" onClick="checkLogin(this.form)">
+							<input type="reset">
+						</td>	
+					</tr>			
+				</table>
+
+			</section>
+			
+			<form>
+		</div>
+		
+	</body>
+</html>

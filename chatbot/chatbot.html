@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chatbot</title>
+	<style>
+		body {
+			background-color: #111629;
+			color: #ffffff;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			width: 400px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #1d1f29;
+			border-radius: 5px;
+			margin-top: 100px;
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+		h3 {
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+
+		.textbox {
+			width: 95%;
+			height: 80px;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			color: #000000;
+			margin-bottom: 10px;
+		}
+
+		.replybox {
+			background-color: #aaaaaa;
+			border-radius: 5px;
+			padding: 0px;
+			height: 100px;
+		}
+
+	</style>
+	
+	<script>
+		function talk() {
+			var ans = {
+				"Hi": "Hello",
+				"What's your name?": "My name is Jarvis.",
+				"How are you?": "I'm alright, thank you!",
+				"How old are you?": "I am an AI, that was created on June 20, 2023. I am 1 day old.",
+				"What can you do?": "I can do a lot of things wink wink",
+				"Tell me a joke": "Why do you call a fake noodle? An impasta!",
+			};
+				
+			var user = document.getElementById('message').value;
+			document.getElementById('reply').innerHTML = user+ "<br>";
+			
+			if (user in ans) {
+				document.getElementById('reply').innerHTML = ans[user] + "<br>";
+			}
+			else {
+				document.getElementById('reply').innerHTML = "Sorry, I didn't understand <br>";
+			}
+		}
+	
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<h1>Chatbot</h1>
+			<h3>Type text in the textbox to interact with the chatbot</h3>
+		</div>
+		<input type="text" id="message" onkeydown="if(event.keyCode == 13){talk()}" class="textbox" placeholder="Type here.." />
+		<div class="replybox">
+			<p id="reply" class="textbox">Reply..</p>
+		</div>
+	</div>
+</body>
+</html>

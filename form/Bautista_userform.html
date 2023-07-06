@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title>User Form</title>
+		
+		<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Comic Sans MS;
+		}
+		.container {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 40px;
+			background-color: #ffffff;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+			text-align: center;
+		.section {
+			margin-bottom: 40px;
+			text-align: left;
+		}
+		.section h4 {
+			font-size: 16px;
+			margin-top: 0;
+			margin-bottom: 20px;
+		}
+		.section h3 {
+			text-align: center;
+		}
+		.section td {
+			
+		}
+		.section tr {
+			height: 50px;
+		}
+		#field {
+			width: 150px;
+		}
+		.section legend {
+			text-align: center;
+		}
+		
+
+		</style>
+	</head>
+
+
+	<body>
+		
+		<div class=container>
+			<form>
+			
+			<section class=section>
+			
+			<fieldset>
+				<legend>User Form</legend>
+				
+				<table>
+				
+						
+					<ul>
+					
+						<tr>
+							<td id="field"><li><label for="firstname">First Name</label></li></td>
+							<td><input type=text id="firstname" name="firstname"></td>
+						</tr>
+						
+						<tr>
+							<td id="field"><li><label for="password">Password</label></li></td>
+							<td id=input><input type=text id="lastname" name="lastname"></td>
+						</tr>
+
+						<tr>
+							<td id="field"><li>Gender</li></td>
+							<td>
+							<input type=radio id="male" name="gender" value="male">
+							<label for="gender">Male</label>
+							<input type=radio id="female" name="gender" value="female">
+							<label for="gender">Female</label>
+							</td>
+						</tr>
+						
+						<tr>
+							<td id="field"><li>Address</li></td>
+							<td>
+							<textarea name="address" rows=5 cols=20> Put address here </textarea>
+							</td>
+						</tr>
+						
+						<tr>
+							<td id="field"><li>D.O.B.</li></td>
+							<td>
+							<select name="month">
+							<option value="jan">Jan</option>
+							<option value="feb">Feb</option>
+							<option value="mar">Mar</option>				
+							</select>
+							<select name="day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>				
+							</select>
+							<select name="year">
+							<option value="2001">2001</option>
+							<option value="2002">2002</option>
+							<option value="2003">2003</option>				
+							</select>
+							</td>
+						</tr>
+
+						<tr>
+							<td id="field"><li>Games</li></td>
+							<td>
+							<input type=checkbox id="hockey" name="games" value="hockey">
+							<label for="games">Hockey</label>
+							<input type=checkbox id="football" name="games" value="football">
+							<label for="games">Football</label>
+							<input type=checkbox id="cricket" name="games" value="cricket">
+							<label for="games">Cricket</label>
+							<input type=checkbox id="volleyball" name="games" value="volleyball">
+							<label for="games">Volleyball</label>
+							</td>
+						</tr>
+
+						<tr>
+							<td id="field"><li>Marital Status</li></td>
+							<td>
+							<input type=radio id="married" name="marital" value="married">
+							<label for="marital">Married</label>
+							<input type=radio id="unmarried" name="marital" value="unmarried">
+							<label for="marital">Unmarried</label>
+							</td>
+						</tr>
+						
+						<tr>
+							<td></td>
+							<td>
+							<input type="submit" value="Submit"><input type="reset">
+							<br/>
+							<input type=checkbox id="accept" name="agreement" value="accept">
+							<label for="agreement">I accept this agreement</label>
+							</td>
+							
+						</tr>
+			
+					</ul>
+					
+					
+					
+				</table>
+			
+				<br/>
+			</fieldset>
+			</section>
+			
+			<form>
+		</div>
+			
+	</body>
+
+
+</html>

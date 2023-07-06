@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Segoe UI;
+            color: #fff;
+            background-color: #222;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .forms {
+            background-color: white;
+            color: black;
+            margin: auto;
+            text-align: right;
+            width: 260px;
+            height: auto;
+            padding: 50px;
+        }
+
+        .left_column {
+            text-align: right;
+            width: 100px;
+        }
+
+        .right_column {
+            text-align: left;
+        }
+    </style>
+    <script type="text/javascript">
+        function validate() {
+            if (document.myForm.user_id.value == "") {
+                alert("Please provide your UserID.");
+                document.myForm.user_id.focus();
+                return false;
+            }
+            if (document.myForm.user_password.value == "") {
+                alert("Please type your password.");
+                document.myForm.user_password.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="forms">
+        <form name="myForm" onSubmit="return validate()" action="main.html">
+            <p>
+                UserID: <input type="text" name="user_id" />
+                <br>
+                Password: <input type="password" name="user_password" />
+                <br>
+                <input type="submit" value="LOGIN"/>
+            </p>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Form Validation</title>
+	<style>
+		body {
+			font-family: Segoe UI;
+			color: #fff;
+			background-color: #222;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		.forms {
+			background-color: white;
+			color: black;
+			margin: auto;
+			text-align: right;
+			width: 260px;
+			height: auto;
+			padding: 50px;
+		}
+
+		.left_column {
+			text-align: right;
+			width: 100px;
+		}
+
+		.right_column {
+			text-align: left;
+		}
+	</style>
+	<script type="text/javascript">
+		function validate() {
+			if (document.myForm.user_name.value == "") {
+				alert("Please provide your name.");
+				document.myForm.user_name.focus();
+				return false;
+			}
+			if (document.myForm.user_email.value == "") {
+				alert("Please provide your email.");
+				document.myForm.user_email.focus();
+				return false;
+			}
+			if (document.myForm.zip_code.value == "") {
+				alert("Please provide your zip code.");
+				document.myForm.zip_code.focus();
+				return false;
+			}
+			if (isNaN(document.myForm.zip_code.value)) {
+				alert("ZIP code cannot contain letters.");
+				document.myForm.zip_code.focus();
+				return false;
+			}
+			if (document.myForm.zip_code.value.length != 4) {
+				alert("Please provide a zip code in this format ####.");
+				document.myForm.zip_code.focus();
+				return false;
+			}
+			if (document.myForm.country.value == "default_country") {
+				alert("Please select a country.");
+				document.myForm.country.focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+</head>
+
+<body>
+	<div class="forms">
+		<form name="myForm" onSubmit="return validate()" action="">
+			<table border="0" cellpadding="2" cellspacing="0">
+				<tr>
+					<td class="left_column">Name</td>
+					<td class="right_column">
+						<input type="text" name="user_name" />
+					</td>
+				</tr>
+				<tr>
+					<td class="left_column">Email</td>
+					<td class="right_column">
+						<input type="text" name="user_email" />
+					</td>
+				</tr>
+				<tr>
+					<td class="left_column">Zip Code</td>
+					<td class="right_column">
+						<input type="text" name="zip_code" />
+					</td>
+				</tr>
+				<tr>
+					<td class="left_column">Country</td>
+					<td class="right_column">
+						<select name="country">
+							<option value="default_country" selected>Country</option>
+							<option value="australia">Australia</option>
+							<option value="philippines">Philippines</option>
+							<option value="croatia">Croatia</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="left_column"></td>
+					<td class="right_column">
+						<input type="submit" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>

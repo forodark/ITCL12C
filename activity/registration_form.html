@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+		* {
+			box-sizing: border-box;
+			font-family: 'Arial', sans-serif;
+		}
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			background-color: #e8e8e8
+		}
+		.container {
+			width: 640px;
+			margin: auto;
+			padding: 20px;
+			border: 2px solid #333;
+			background-color: #f9f9f9;
+			border-radius: 20px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+		}
+		.he {
+			text-align: center;
+		}
+		.form-group {
+			margin-bottom: 20px;
+		}
+
+		.input-label {
+			display: block;
+			font-weight: bold;
+			margin-bottom: 5px;
+			color: #333;
+		}
+
+		input {
+			width: 100%;
+			border: none;
+			padding: 10px;
+			border-radius: 30px;
+			background-color: #eee;
+			color: #333;
+		}
+
+		button {
+			display: block;
+			width: 100%;
+			padding: 15px;
+			margin-top: 20px;
+			background-color: dodgerblue;
+			color: #fff;
+			border: none;
+			border-radius: 30px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.2s ease;
+		}
+
+		button:hover {
+			background-color: #dfdfdf !important;
+		}
+
+		.error-message {
+			color: red;
+			font-size: 14px;
+			margin-top: 5px;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+    </style>
+	
+	<script>
+		var password = document.getElementById("password"), confirm = document.getElementById("confirmPassword");
+		
+		function validatePassword() {
+			if (password.value != confirm.value) {
+				confirm.setCustomValidity("Passwords don't match");
+			}
+			else {
+				confirm.setCustomValidity("");
+			}
+		}
+		
+		password.onchange=validatePassword;
+		confirm.onkeyup=validatePassword;
+		
+	</script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="he">Registration Form</h2>
+        <div class="c1">
+		<br>
+            <form action="test1.php" method="POST">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName" required placeholder="Enter first name" pattern="^[A-Z]\w*$" oninvalid="this.setCustomValidity('First letter must be uppercase')" onchange="try{setCustomValidity('')}catch(e){}">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required placeholder="Enter last name" pattern="^[A-Z]\w*$" oninvalid="this.setCustomValidity('First letter must be uppercase')" onchange="try{setCustomValidity('')}catch(e){}">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter email address"  oninvalid="this.setCustomValidity('Invalid email format')" onchange="try{setCustomValidity('')}catch(e){}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter password"  pattern="(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z]).{6,10}" oninvalid="this.setCustomValidity('Invalid password format')" onchange="try{setCustomValidity('')}catch(e){}">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm password">
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" min="1900-01-01" max="2010-12-31">
+                </div>
+				<div class="form-group1">
+					<button type="submit">Sign Up</button>
+				</div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

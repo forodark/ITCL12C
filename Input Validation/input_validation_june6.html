@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Form Input Validation Using HTML5</title>
+
+	<style>
+		body {
+			background-image: linear-gradient(#1f2937, #5B708E);
+			background-color: #1f2937;
+			color: #ffffff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+		.container {
+			background-color: #31415A;
+			border-radius: 10px;
+			padding: 20px;
+			width: 600px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		}
+		h1 {
+			text-align: center;
+			font-size: 28px;
+			margin-bottom: 30px;
+		}
+		table {
+			width: 100%;
+		}
+		table td {
+			padding: 10px;
+		}
+		td:first-child {
+			text-align: right;
+		}
+		table input, table select, table textarea {
+			padding: 5px;
+			border-radius: 5px;
+			border: none;
+			border: 1px solid #cccccc;
+			background-image: linear-gradient(#4B5566, #1f2937);
+		}
+		.box {
+			width: 95%;
+		}
+		.button {
+			margin-top: 20px;
+			text-align: center;
+		}
+		.button input {
+			background-color: #7C8CBA;
+			color: #ffffff;
+			padding: 12px 30px;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+		}
+		.button input:hover {
+			background-color: #515F87;
+		}
+		span{
+			color: #FF4B00;
+		}
+	</style>
+	<script>
+		function validateForm() {
+			var student_id = document.forms["form"]["student_id"];
+			var name = document.forms["form"]["name"];
+			var address = document.forms["form"]["address"];
+			var zip_code = document.forms["form"]["zip_code"];
+			var city = document.forms["form"]["city"];
+			var gender = document.querySelector('input[name="gender"]:checked');
+			var course = document.querySelectorAll('input[name="course"]:checked');
+			var schedule = document.querySelectorAll('input[name="schedule"]:checked');
+			var phone = document.forms["form"]["phone"];
+			var email = document.forms["form"]["email"];
+			var password = document.forms["form"]["password"];
+			var verify_password = document.forms["form"]["verify_password"];
+			var birthday = document.forms["form"]["birthday"];
+			var file = document.forms["form"]["file"];
+			var enrollment = document.forms["form"]["enrollment"];
+			var notes = document.forms["form"]["notes"];
+
+			if (student_id.value === "") {
+				student_id.focus();
+				alert("Please enter Student ID.");
+				return false;
+			}
+			if (!student_id.value.match(/^\d{4}-\d-\d{5}$/)) {
+				student_id.focus();
+				alert("Please enter a valid Student ID XXXX-X-XXXXX.");
+				return false;
+			}
+			if (name.value === "") {
+				name.focus();
+				alert("Please enter Name.");
+				return false;
+			}
+			if (!name.value.match(/^[A-Za-z\s]+$/)) {
+				name.focus();
+				alert("Please enter a valid name");
+				return false;
+			}
+			if (zip_code.value === "") {
+				zip_code.focus();
+				alert("Please enter a Zip Code.");
+				return false;
+			}
+			if (!zip_code.value.match(/^\d{5}$/)) {
+				zip_code.focus();
+				alert("Please enter a valid 5-digit Zip Code.");
+				return false;
+			}
+			if (city.value === "") {
+				city.focus();
+				alert("Please select a City.");
+				return false;
+			}
+			if (!gender) {
+				alert("Please select a Gender.");
+				return false;
+			}
+			if (course.length === 0) {
+				alert("Please select at least one Course.");
+				return false;
+			}
+			if (schedule.length === 0) {
+				alert("Please select at least one Schedule.");
+				return false;
+			}
+			if (phone.value === "") {
+				phone.focus();
+				alert("Please enter a Phone number.");
+				return false;
+			}
+			if (!phone.value.match(/^\d{10}$/)) {
+				phone.focus();
+				alert("Phone number must be 10 digits.");
+				return false;
+			}
+			if (email.value === "") {
+				email.focus();
+				alert("Please enter an Email address.");
+				return false;
+			}
+			if (!email.value.match(/\S+@\S+\.\S+/)) {
+				email.focus();
+				alert("Please enter a valid Email address.");
+				return false;
+			}
+			if (password.value === "") {
+				password.focus();
+				alert("Please enter a Password.");
+				return false;
+			}
+			if (password.value.length < 6 || password.value.length > 8) {
+				password.focus();
+				alert("Password must be 6 to 8 characters.");
+				return false;
+			}
+			if (verify_password.value === "") {
+				verify_password.focus();
+				alert("Please verify password.");
+				return false;
+			}
+			if (verify_password.value !== password.value) {
+				verify_password.focus();
+				alert("Passwords do not match.");
+				return false;
+			}
+			if (birthday.value === "") {
+				birthday.focus();
+				alert("Please enter a Birthday.");
+				return false;
+			}
+			if (file.value === "") {
+				file.focus();
+				alert("Please choose a File to upload.");
+				return false;
+			}
+			if (enrollment.value === "") {
+				enrollment.focus();
+				alert("Please enter an Enrollment Date.");
+				return false;
+			}
+			alert("Successfully Submitted");
+			return true;
+		}
+	</script>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Form Input Validation Using HTML5</h1>
+        <form name="form" onsubmit="return validateForm()">
+            <table>
+                <tr>
+                    <td><label for="student_id">Student ID<span>*</span></label></td>
+                    <td><input class="box" type="text" id="student_id" name="student_id" placeholder="XXXX-X-XXXXX"></td>
+                </tr>
+                <tr>
+                    <td><label for="name">Name<span>*</span></label></td>
+                    <td><input class="box" type="text" id="name" name="name" placeholder="Enter name..."></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Address</label></td>
+                    <td><input class="box" type="text" id="address" name="address" placeholder="Enter address..."></td>
+                </tr>
+                <tr>
+                    <td><label for="zip_code">Zip Code<span>*</span></label></td>
+                    <td><input class="box" type="text" id="zip_code" name="zip_code" placeholder="XXXXX"></td>
+                </tr>
+                <tr>
+                    <td><label for="city">City<span>*</span></label></td>
+                    <td>
+                        <select id="city" name="city">
+                            <option value="">Select City</option>
+                            <option value="manila">Manila</option>
+                            <option value="makati">Makati</option>
+                            <option value="pasay">Pasay</option>
+		                    <option value="mandaluyong">Mandaluyong</option>
+                            <option value="quezoncity">Quezon City</option>
+                            <option value="valenzuela">Valenzuela</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="gender">Gender<span>*</span></label></td>
+					<td>
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+					</td>
+                </tr>
+                <tr>
+                    <td><label for="course">course<span>*</span></label></td>
+					<td>
+                        <input type="checkbox" id="bsit" name="course" value="bsit">
+                        <label for="bsit">BSIT</label>
+                        <input type="checkbox" id="bscs" name="course" value="bscs">
+                        <label for="bscs">BSCS</label>
+                        <input type="checkbox" id="bse" name="course" value="bse">
+                        <label for="bse">BSE</label>
+					</td>
+                </tr>
+                <tr>
+                    <td><label for="schedule">Schedule<span>*</span></label></td>
+                    <td>  
+						<input type="checkbox" id="morning" name="schedule" value="morning">
+                        <label for="morning">Morning Class</label>
+                        <input type="checkbox" id="afternoon" name="schedule" value="afternoon">
+                        <label for="afternoon">Afternoon Class</label>
+                        <input type="checkbox" id="evening" name="schedule" value="evening">
+                        <label for="evening">Evening Class</label>
+					</td>
+                </tr>
+                <tr>
+                    <td><label for="phone">Phone<span>*</span></label></td>
+                    <td><input class="box" type="text" id="phone" name="phone" placeholder="XXXXXXXXXX"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email<span>*</span></label></td>
+                    <td><input class="box" type="email" id="email" name="email" placeholder="example@domain.com"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password<span>*</span></label></td>
+                    <td><input class="box" type="password" id="password" name="password" placeholder="Enter password..."></td>
+                </tr>
+                <tr>
+                    <td><label for="verify_password">Verify Password<span>*</span></label></td>
+                    <td><input class="box" type="password" id="verify_password" name="verify_password" placeholder="Confirm password"></td>
+                </tr>
+                <tr>
+                    <td><label for="birthday">Birthday<span>*</span></label></td>
+                    <td><input type="date" id="birthday" name="birthday"></td>
+                </tr>
+                <tr>
+                    <td><label for="file">File Upload<span>*</span></label></td>
+                    <td><input type="file" id="file" name="file"></td>
+                </tr>
+                <tr>
+                    <td><label for="enrollment">Enrollment Date<span>*</span></label></td>
+                    <td><input type="date" id="enrollment" name="enrollment"></td>
+                </tr>
+                <tr>
+                    <td><label for="notes">Notes</label></td>
+                    <td><textarea class="box" id="notes" name="notes" placeholder="Enter notes..."></textarea></td>
+                </tr>
+            </table>
+
+            <div class="button">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
